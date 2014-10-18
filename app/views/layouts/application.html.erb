@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>IVR Adventure</title>
+  
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag "spacelab", :media => "all" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,18 +16,18 @@
     <div class="navbar-header">
 	  <%= link_to "IVR Adventure", root_path, {class: "navbar-brand"} %>
 	</div>
-	  <form class="navbar-form navbar-right" role="search">
+    <%= form_tag show_story_path, method: "get", class: "navbar-form navbar-right" do %>
 	    <div class="form-group">
-	      <input type="text" class="form-control" placeholder="4-digit story id">
-	    </div>
-	    <button type="submit" class="btn btn-primary">edit story</button>
-	  </form>
-	  <form class="navbar-form navbar-right" role="search">
-	    <div class="form-group">
-	      <input type="text" class="form-control" placeholder="story name">
-	    </div>
-	    <button type="submit" class="btn btn-primary">create story</button>
-	  </form>
+	      <input name="story_id" type="text" class="form-control" placeholder="4-digit story id">
+        </div>
+	    <button class="btn btn-primary">edit story</button>
+    <% end %>
+	<form class="navbar-form navbar-right" role="search">
+	  <div class="form-group">
+	    <input type="text" class="form-control" placeholder="story name">
+	  </div>
+	  <button type="submit" class="btn btn-primary">create story</button>
+	</form>
   </div>
 </nav>
 

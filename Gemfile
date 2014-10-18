@@ -39,6 +39,8 @@ gem 'spring',        group: :development
 
 # Custom gems
 
+gem 'mysql'
+
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
