@@ -23,11 +23,12 @@
 	</div>
 </div>
 <br>
+<% count = 1 %>
 <% @chapters.each do |chapter| %>
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<h3>Chapter <%= chapter.id %></h3>
+			<h3>Chapter <%= count %> (target is <%= chapter.id %>)</h3>
 			<%= form_tag update_story_path(@story_id, chapter.id), method: "get" do %>
 				<div class="input-group">
 			    	<span class="input-group-addon">scenario</span>
@@ -80,6 +81,7 @@
 				</div>
 				<br>
 				<button class="btn btn-primary">save chapter</button>
+				<% count = count + 1 %>
 			<% end %>
 		</div>
 		<div class="col-md-2"></div>
