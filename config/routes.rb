@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "stories#index"
   
   get '/stories' => 'stories#index', as: 'stories'
+  get '/stories/list' => 'stories#list', as: 'list_story'
   get '/stories/new' => 'stories#new', as: 'new_story'
   get '/stories/show' => 'stories#show', as: 'show_story'
   get '/stories/add_to/:story_id' => 'stories#add_to', as: 'add_to_story'

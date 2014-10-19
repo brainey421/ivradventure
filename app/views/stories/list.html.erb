@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="text-center">List of Stories</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<% @stories.each do |story| %>
+			<h3>Story <%= story.id %>: <%= story.name %></h3>
+		<% end %>
+	</div>
+	<div class="col-md-2"></div>
+</div>

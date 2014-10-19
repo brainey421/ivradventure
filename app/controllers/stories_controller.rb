@@ -3,6 +3,15 @@ class StoriesController < ApplicationController
   
   end
   
+  def list
+    begin
+      @stories = Story.all
+    rescue
+      flash[:error] = "An error occurred while getting a list of stories."
+      redirect_to(root_path)
+    end
+  end
+  
   def new
     begin
       if (!params[:story_name] || params[:story_name] == "")
@@ -86,6 +95,12 @@ class StoriesController < ApplicationController
       end
       
       if (params[:choice_three_id] != "" && Chapter.find(params[:choice_three_id]).story_id.to_s != params[:story_id])
+        flash[:error] = "An error occurred while updating the chapter."
+        redirect_to(show_story_path(story_id: params[:story_id]))
+        return
+      end
+      
+      if (params[:scenario] == "")
         flash[:error] = "An error occurred while updating the chapter."
         redirect_to(show_story_path(story_id: params[:story_id]))
         return
