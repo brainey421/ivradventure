@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
+  adapter: mysql
   database: storybook
   username: root
   host: 128.211.196.237

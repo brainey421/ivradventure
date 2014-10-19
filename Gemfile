@@ -45,7 +45,3 @@ gem 'twitter-bootstrap-rails'
 
 gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-helpers'
-
-# Heroku crap
-
-gem 'pg'
