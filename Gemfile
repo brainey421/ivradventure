@@ -37,8 +37,6 @@ gem 'spring',        group: :development
 
 # Custom gems
 
-gem 'pg'
-
 gem 'mysql'
 
 gem 'therubyracer'
@@ -47,3 +45,6 @@ gem 'twitter-bootstrap-rails'
 
 gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-helpers'
+
+# Heroku crap
+
