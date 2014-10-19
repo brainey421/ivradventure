@@ -37,6 +37,8 @@ gem 'spring',        group: :development
 
 # Custom gems
 
+gem 'pg'
+
 gem 'mysql'
 
 gem 'therubyracer'
