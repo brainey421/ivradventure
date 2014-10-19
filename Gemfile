@@ -48,3 +48,4 @@ gem 'twitter-bootswatch-rails-helpers'
 
 # Heroku crap
 
+gem 'pg'
