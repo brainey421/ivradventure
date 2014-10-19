@@ -59,7 +59,51 @@ class StoriesController < ApplicationController
       redirect_to(show_story_path(story_id: params[:story_id]))
     rescue
       flash[:error] = "An error occurred while adding a new chapter."
-      redirect_to(root_path)
+      redirect_to(show_story_path(story_id: params[:story_id]))
+    end
+  end
+  
+  def update
+    begin
+      chapter = Chapter.find(params[:chapter_id])
+      
+      if chapter.story_id.to_s != params[:story_id]
+        flash[:error] = "An error occurred while updating the chapter."
+        redirect_to(show_story_path(story_id: params[:story_id]))
+        return
+      end
+      
+      if (params[:choice_one_id] != "" && Chapter.find(params[:choice_one_id]).story_id.to_s != params[:story_id])
+        flash[:error] = "An error occurred while updating the chapter."
+        redirect_to(show_story_path(story_id: params[:story_id]))
+        return
+      end
+      
+      if (params[:choice_two_id] != "" && Chapter.find(params[:choice_two_id]).story_id.to_s != params[:story_id])
+        flash[:error] = "An error occurred while updating the chapter."
+        redirect_to(show_story_path(story_id: params[:story_id]))
+        return
+      end
+      
+      if (params[:choice_three_id] != "" && Chapter.find(params[:choice_three_id]).story_id.to_s != params[:story_id])
+        flash[:error] = "An error occurred while updating the chapter."
+        redirect_to(show_story_path(story_id: params[:story_id]))
+        return
+      end
+      
+      chapter.scenario = params[:scenario]
+      chapter.choice_one = params[:choice_one]
+      chapter.choice_one_id = params[:choice_one_id]
+      chapter.choice_two = params[:choice_two]
+      chapter.choice_two_id = params[:choice_two_id]
+      chapter.choice_three = params[:choice_three]
+      chapter.choice_three_id = params[:choice_three_id]
+      chapter.save
+      
+      redirect_to(show_story_path(story_id: params[:story_id]))
+    rescue
+      flash[:error] = "An error occurred while updating the chapter."
+      redirect_to(show_story_path(story_id: params[:story_id]))
     end
   end
 end

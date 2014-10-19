@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get '/stories' => 'stories#index', as: 'stories'
   get '/stories/new' => 'stories#new', as: 'new_story'
   get '/stories/show' => 'stories#show', as: 'show_story'
-  get '/stories/add_to' => 'stories#add_to', as: 'add_to_story'
-  get '/stories/update/:chapter_id' => 'stories#update', as: 'update_story'
+  get '/stories/add_to/:story_id' => 'stories#add_to', as: 'add_to_story'
+  get '/stories/update/:story_id/:chapter_id' => 'stories#update', as: 'update_story'
   
   get '*path' => redirect("/")
   
