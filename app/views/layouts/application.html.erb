@@ -22,14 +22,24 @@
         </div>
 	    <button class="btn btn-primary">edit story</button>
     <% end %>
-	<form class="navbar-form navbar-right" role="search">
-	  <div class="form-group">
-	    <input type="text" class="form-control" placeholder="story name">
-	  </div>
-	  <button type="submit" class="btn btn-primary">create story</button>
-	</form>
+    <%= form_tag new_story_path, method: "get", class: "navbar-form navbar-right" do %>
+	    <div class="form-group">
+	      <input name="story_name" type="text" class="form-control" placeholder="story name">
+        </div>
+	    <button class="btn btn-primary">create story</button>
+    <% end %>
   </div>
 </nav>
+
+<% if flash[:error] %>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<div class="alert alert-danger" role="alert"><%= flash[:error] %></div>
+	</div>
+	<div class="col-md-1"></div>
+</div>
+<% end %>
 
 <%= yield %>
 

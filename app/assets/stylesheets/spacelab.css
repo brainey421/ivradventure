@@ -5,4 +5,4 @@
  *= require spacelab/bootswatch
 */
 
-body { padding-top: 70px; }
+body { padding-top: 70px; padding-bottom: 50px; }

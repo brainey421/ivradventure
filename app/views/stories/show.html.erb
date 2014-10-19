@@ -3,3 +3,84 @@
 		<h1 class="text-center">Story <%= @story_id %>: <%= @story_name %></h1>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<h4>
+			For each chapter, describe a scenario, and 
+			give the player as many as three choices. 
+			Point each choice to another chapter, and 
+			leave the choices blank for the final chapters.
+		</h4>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+<br>
+<div class="row">
+	<div class="col-md-12 text-center">
+		<%= link_to raw("<button type=\"button\" class=\"btn btn-primary\">add a new chapter</button>"), add_to_story_path(story_id: @story_id) %>
+	</div>
+</div>
+<br>
+<% @chapters.each do |chapter| %>
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h4>Chapter <%= chapter.id %></h4>
+			
+			<div class="input-group">
+			    <span class="input-group-addon">scenario</span>
+			    <input type="text" class="form-control" value="<%= chapter.scenario %>">
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-10">
+					<div class="input-group">
+					    <span class="input-group-addon">choice one</span>
+					    <input type="text" class="form-control" value="<%= chapter.choice_one %>">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="input-group">
+						<span class="input-group-addon">target</span>
+						<input type="text" class="form-control" value="<%= chapter.choice_one_id %>">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-10">
+					<div class="input-group">
+					    <span class="input-group-addon">choice two</span>
+					    <input type="text" class="form-control" value="<%= chapter.choice_two %>">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="input-group">
+						<span class="input-group-addon">target</span>
+						<input type="text" class="form-control" value="<%= chapter.choice_two_id %>">
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-10">
+					<div class="input-group">
+					    <span class="input-group-addon">choice three</span>
+					    <input type="text" class="form-control" value="<%= chapter.choice_three %>">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="input-group">
+						<span class="input-group-addon">target</span>
+						<input type="text" class="form-control" value="<%= chapter.choice_three_id %>">
+					</div>
+				</div>
+			</div>
+			<br>
+			<%= link_to raw("<button type=\"button\" class=\"btn btn-primary\">update chapter</button>"), add_to_story_path(story_id: @story_id) %>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<br>
+<% end %>
